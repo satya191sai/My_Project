@@ -1,0 +1,149 @@
+/* 🌸 Newsletter Section (Elegant & Modern) */
+.newsletter-section {
+  background: linear-gradient(135deg, #fff6e9 0%, #ffe0ec 100%);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gradient circles */
+.newsletter-section::before,
+.newsletter-section::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 150, 100, 0.3), transparent 70%);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+.newsletter-section::before {
+  top: -50px;
+  left: -50px;
+}
+
+.newsletter-section::after {
+  bottom: -50px;
+  right: -50px;
+}
+
+/* Floating animation for background circles */
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+/* Glass-style container */
+.newsletter-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 50px 70px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 650px;
+  width: 100%;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.newsletter-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Headings & Text */
+.newsletter-container h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.newsletter-container p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 35px;
+  line-height: 1.5;
+}
+
+/* 🌷 Stylish Form */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 14px 18px;
+  width: 70%;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.newsletter-form input:focus {
+  border-color: #ff6a00;
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.3);
+}
+
+/* Gradient Button */
+.newsletter-form button {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 12px rgba(255, 106, 0, 0.25);
+}
+
+.newsletter-form button:hover {
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(238, 9, 121, 0.3);
+}
+
+/* ✨ Responsive */
+@media (max-width: 768px) {
+  .newsletter-container {
+    padding: 30px 25px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .newsletter-container h2 {
+    font-size: 1.8rem;
+  }
+}

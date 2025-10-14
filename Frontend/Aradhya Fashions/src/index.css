@@ -1,0 +1,54 @@
+/* Basic reset & variables */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#e91e63;--muted:#666,background:linear-gradient(135deg,#ff6a00,#ee0979 65%,#ff6a00)}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.4;color:#222}
+
+
+main{padding:24px}
+
+
+/* Hero */
+.hero{display:flex;gap:30px;align-items:center;padding:40px;background:#fafafa;border-radius:8px;margin-bottom:24px}
+.hero-content{flex:1}
+.hero h1{font-size:32px;margin-bottom:8px}
+.hero p{color:var(--muted);margin-bottom:12px}
+.hero .btn{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none}
+.hero-image{width:320px;height:220px;background-image:url('/assets/sample-product.jpg');background-size:cover;background-position:center;border-radius:8px}
+
+
+/* Product list */
+.product-list{margin-top:20px}
+.list-header{display:flex;justify-content:flex-end;margin-bottom:12px}
+.list-header input{padding:8px 12px;border:1px solid #ddd;border-radius:6px;width:220px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.product-card{border:1px solid #eee;padding:12px;border-radius:8px;background:#fff}
+.product-card img{width:100%;height:180px;object-fit:cover;border-radius:6px}
+.product-card h3{font-size:16px;margin:10px 0}
+.product-card .price{font-weight:700}
+.product-card .actions{display:flex;gap:8px;margin-top:8px}
+.product-card button{padding:8px 10px;border-radius:6px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.product-card .view{padding:8px 10px;border-radius:6px;border:1px solid #ddd;text-decoration:none;color:#333}
+
+
+/* Product page */
+.product-page{display:flex;gap:24px;padding:24px}
+.product-page img{width:420px;height:420px;object-fit:cover;border-radius:8px}
+.product-page .details{max-width:520px}
+.product-page .price{font-size:20px;color:var(--accent);font-weight:700}
+
+
+/* Cart */
+.cart-page{padding:20px}
+.cart-items{display:flex;flex-direction:column;gap:12px}
+.cart-item{display:flex;gap:12px;border:1px solid #eee;padding:12px;border-radius:8px}
+.cart-item img{width:120px;height:120px;object-fit:cover}
+.cart-summary{margin-top:16px}
+.cart-actions{display:flex;gap:8px;margin-top:8px}
+.cart-actions button{padding:8px 12px;border-radius:6px}
+
+
+/* Footer */
+.site-footer{margin-top:30px;padding:24px;text-align:center;color:var(--muted)}
+
+
+/* Navbar file has its own CSS */

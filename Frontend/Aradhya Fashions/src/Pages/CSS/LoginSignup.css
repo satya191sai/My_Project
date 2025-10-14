@@ -1,0 +1,101 @@
+/* Full screen container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full viewport height */
+  padding: 1rem;
+  background: linear-gradient(135deg, #1f2937, #111827);
+}
+
+/* Card styling */
+.login-card {
+  background-color: #ffffff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px; /* responsive width */
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Title */
+.login-card h2 {
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+  font-size: 1.8rem;
+}
+
+/* Input Fields */
+.login-card input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #fbbf24;
+}
+
+/* Button */
+.login-card button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #fbbf24;
+  color: #1f2937;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-card button:hover {
+  background-color: #f59e0b;
+}
+
+/* Toggle text */
+.login-card p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-card p span {
+  color: #fbbf24;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: color 0.3s;
+}
+
+.login-card p span:hover {
+  color: #f59e0b;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 500px) {
+  .login-card {
+    padding: 1.5rem 1.8rem;
+  }
+
+  .login-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-card input,
+  .login-card button {
+    font-size: 0.95rem;
+  }
+}

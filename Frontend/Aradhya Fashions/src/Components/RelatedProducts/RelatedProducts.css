@@ -1,0 +1,18 @@
+.related-products {
+  padding: 40px 20px;
+  background-color: #f8f8f8;
+}
+
+.related-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.related-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

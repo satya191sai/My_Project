@@ -1,0 +1,226 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #1f2937, #111827);
+  color: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.logo-text {
+  color: #f9fafb;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo-text:hover {
+  color: #fbbf24;
+}
+
+/* Menu Links */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+/* Active link highlight */
+.active-link {
+  color: #fbbf24;
+  font-weight: bold;
+}
+
+/* Mobile Login link */
+.mobile-login {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-login {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .nav-login-cart {
+    display: none; /* Hide desktop login/cart on mobile */
+  }
+}
+
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #e0895d;
+  font-weight: 500;
+  font-size: 20px;
+  position: relative;
+  transition: color 0.5s;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #fbbf24;
+  transition: width 0.3s;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+.nav-menu li a:hover {
+  color: #fbbf24;
+}
+
+/* Login & Cart */
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #fbbf24;
+  color: #1f2937;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f59e0b;
+}
+
+/* Cart */
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f59e0b;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.cart-svg {
+  font-size: 28px;
+  color: #fbbf24; /* Change color here */
+  transition: transform 0.2s;
+}
+
+.cart-svg:hover {
+  transform: scale(1.1);
+}
+/* Cart Icon */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-svg {
+  font-size: 28px;
+  color: #fbbf24; /* Change cart color here */
+  transition: transform 0.2s;
+}
+
+.cart-svg:hover {
+  transform: scale(1.1);
+}
+
+/* Cart Count Badge */
+.nav-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f59e0b;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.nav-cart-count:hover {
+  transform: scale(1.1);
+}
+
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f9fafb;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    flex-direction: column;
+    background: linear-gradient(180deg, #1f2937, #111827);
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  .nav-login-cart {
+    display: none; /* optional: hide login/cart in mobile menu and include them in nav-menu if desired */
+  }
+
+  .nav-menu li a {
+    font-size: 1.5rem;
+  }
+}
