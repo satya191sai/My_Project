@@ -13,8 +13,8 @@ const NewCollections = () => {
             id={product.id}
             name={product.name}
             image={product.image}
-            newPrice={product.newPrice}
-            oldPrice={product.oldPrice}
+            newPrice={product.new_price}
+            oldPrice={product.old_price}
           />
         ))}
       </div>

@@ -8,19 +8,19 @@ const offersData = [
     id: 1,
     title: "Summer Sale",
     description: "Up to 50% off on summer collection!",
-    image: "/src/Assets/offers/summer_sale.png",
+    image: "/src/Assets/exclusive_image.png",
   },
   {
     id: 2,
     title: "Festive Deals",
     description: "Special discounts for festive season!",
-    image: "/src/Assets/offers/festive_deal.png",
+    image: "/src/Assets/festive_deal.png",
   },
   {
     id: 3,
     title: "Clearance Sale",
     description: "Last chance items at huge discounts!",
-    image: "/src/Assets/offers/clearance_sale.png",
+    image: "/src/Assets/clearance_sale.png",
   },
 ];
 

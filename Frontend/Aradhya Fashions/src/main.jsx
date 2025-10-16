@@ -4,9 +4,8 @@ import App from "./App";
 import { ShopProvider } from "./Contex/ShopContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ShopProvider>
+  
+  <ShopProvider>
       <App />
     </ShopProvider>
-  </React.StrictMode>
 );

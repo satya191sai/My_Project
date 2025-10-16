@@ -17,13 +17,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Shop />} />
-        <Route path="/mens" element={<ShopCategory category="men" />} />
-        <Route path="/womens" element={<ShopCategory category="women" />} />
-        <Route path="/kids" element={<ShopCategory category="kids" />} />
+        <Route path="/hotdeals" element={<ShopCategory category="hotdeals" />} />
+        <Route path="/western" element={<ShopCategory category="western" />} />
+        <Route path="/newarrivals" element={<ShopCategory category="newarrivals" />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LoginSignup />} />
-        <Route path="/about" element={<About />} /> {/* ✅ About page route */}
+        <Route path="/about" element={<About />} />
         <Route
           path="*"
           element={

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FaBars, FaTimes, FaShoppingCart } from "react-icons/fa"; // ✅ Added FaShoppingCart
+import { FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
 import logo from "../../Assets/logo.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Contex/ShopContext";
@@ -7,7 +7,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { cartItems = [] } = useContext(ShopContext);
+  const { cartItems = [] } = useContext(ShopContext); // ✅ Default empty array
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -15,16 +15,18 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Logo */}
       <div className="nav-logo">
-        <img src={logo} alt="Aradhya Fashions" />
-        <Link to="/" className="logo-text">Aradhya Fashions</Link>
+        <Link to="/">
+          <img src={logo} alt="Aradhya Fashions" className="logo-img" />
+          <span className="logo-text">Aradhya Fashions</span>
+        </Link>
       </div>
 
       {/* Menu Links */}
       <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
         <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-        <li><Link to="/mens" onClick={() => setMenuOpen(false)}>Hot Deals</Link></li>
-        <li><Link to="/womens" onClick={() => setMenuOpen(false)}>Westen</Link></li>
-        <li><Link to="/kids" onClick={() => setMenuOpen(false)}>New Arrivals</Link></li>
+        <li><Link to="/hotdeals" onClick={() => setMenuOpen(false)}>Hot Deals</Link></li>
+        <li><Link to="/western" onClick={() => setMenuOpen(false)}>Western</Link></li>
+        <li><Link to="/newarrivals" onClick={() => setMenuOpen(false)}>New Arrivals</Link></li>
         <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
       </ul>
 
@@ -34,14 +36,12 @@ const Navbar = () => {
           <button className="login-btn">Login</button>
         </Link>
 
-        <div className="cart-icon">
-          <Link to="/cart">
-            <FaShoppingCart className="cart-svg" /> {/* ✅ React Icon */}
-            {cartItems.length > 0 && (
-              <span className="nav-cart-count">{cartItems.length}</span>
-            )}
-          </Link>
-        </div>
+        <Link to="/cart" className="cart-icon">
+          <FaShoppingCart className="cart-svg" />
+          {cartItems.length > 0 && (
+            <span className="nav-cart-count">{cartItems.length}</span>
+          )}
+        </Link>
       </div>
 
       {/* Hamburger */}

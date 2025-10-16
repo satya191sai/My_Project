@@ -64,13 +64,6 @@ let new_collections = [
     new_price: 100.0,
     old_price: 150.0,
   },
-  {
-    id: 40,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
-    image: p9_img,
-    new_price: 60.0,
-    old_price: 100.5,
-  }
 ];
 
 export default new_collections;
