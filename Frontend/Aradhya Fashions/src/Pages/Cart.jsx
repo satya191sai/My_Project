@@ -289,8 +289,7 @@ const Cart = () => {
                   </div>
 
                   <div className="cart-item-actions">
-                    <button className="save-btn">Save for Later</button>
-                    <button
+                      <button
                       className="remove-btn"
                       onClick={() => removeFromCart(item.id)}
                     >
@@ -303,7 +302,7 @@ const Cart = () => {
 
             {selectedAddress && (
               <button className="place-order-btn">
-                Deliver to {selectedAddress.name}
+                Place Order
               </button>
             )}
           </div>
