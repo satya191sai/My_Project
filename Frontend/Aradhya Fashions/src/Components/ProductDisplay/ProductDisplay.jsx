@@ -6,18 +6,18 @@ import Item from '../Item/Item';
 import { ShopContext } from '../../Contex/ShopContext';
 
 const ProductDisplay = ({ product }) => {
-  const { all_product } = useContext(ShopContext);
-  const [mainImage, setMainImage] = useState(product.image);
+  const { all_product, addToCart } = useContext(ShopContext); // ✅ get addToCart
+  const [mainImage, setMainImage] = useState(product.images?.[0] || product.image);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [similarProducts, setSimilarProducts] = useState([]);
 
-  // ✅ Sync main image whenever product changes
+  // Sync main image whenever product changes
   useEffect(() => {
-    setMainImage(product.image);
+    setMainImage(product.images?.[0] || product.image);
   }, [product]);
 
-  // ✅ Similar products logic
+  // Similar products logic
   useEffect(() => {
     if (all_product && all_product.length > 0) {
       let filtered = [];
@@ -37,7 +37,7 @@ const ProductDisplay = ({ product }) => {
     }
   }, [product, all_product]);
 
-  // ✅ Add comments
+  // Add comments
   const handleAddComment = () => {
     if (newComment.trim()) {
       setComments([{ text: newComment, date: new Date() }, ...comments]);
@@ -45,12 +45,17 @@ const ProductDisplay = ({ product }) => {
     }
   };
 
+  // ✅ Handle Add to Cart click
+  const handleAddToCart = () => {
+    addToCart(product, 1);
+    alert('Product added to cart!'); // optional feedback
+  };
+
   return (
     <div className="product-display">
       {/* ---------- LEFT SECTION ---------- */}
       <div className="product-left">
         <div className="product-thumbnails">
-          {/* ✅ If product.images exists, map over it; otherwise fallback to product.image */}
           {(product.images?.length ? product.images : [product.image]).map((img, idx) => (
             <img
               key={idx}
@@ -106,8 +111,9 @@ const ProductDisplay = ({ product }) => {
           <span>Tags: </span>Modern, Latest
         </p>
         <div className="buttons">
-          <button className="add-to-cart-btn">Buynow</button>
-          <button className="add-to-cart-btn">Add to Cart</button>
+          {/* ✅ Updated button */}
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>Buynow</button>
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
 

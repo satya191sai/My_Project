@@ -7,7 +7,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { cartItems = [] } = useContext(ShopContext); // ✅ Default empty array
+  const { cartItems, getCartTotalItems } = useContext(ShopContext);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -38,8 +38,8 @@ const Navbar = () => {
 
         <Link to="/cart" className="cart-icon">
           <FaShoppingCart className="cart-svg" />
-          {cartItems.length > 0 && (
-            <span className="nav-cart-count">{cartItems.length}</span>
+          {getCartTotalItems() > 0 && (
+            <span className="nav-cart-count">{getCartTotalItems()}</span>
           )}
         </Link>
       </div>

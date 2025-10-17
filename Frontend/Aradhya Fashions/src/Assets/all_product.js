@@ -373,10 +373,7 @@ let all_product = [
     id: 40,
     name: "womens Orange Colourblocked Hooded Sweatshirt",
     category: "hotdeals",
-    image: [
-      p40_img,
-      p41_img,
-    ],
+    image:p40_img,
     new_price: 69.0,
     old_price: 120.5,
   }
