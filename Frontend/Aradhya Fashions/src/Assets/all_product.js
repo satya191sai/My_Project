@@ -39,7 +39,7 @@ import p38_img from "./product_38.png";
 import p39_img from "./product_39.png";
 import p40_img from "./product_40.png";
 import p41_img from "./product_41.png";
-
+import p42_img from "./product_42.png";
 let all_product = [
   {
     id: 1,
@@ -86,7 +86,7 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p6_img,
-    new_price: 85.0,
+    new_price: 81.0,
     old_price: 120.5,
   },
   {
@@ -94,15 +94,31 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p7_img,
-    new_price: 85.0,
+    new_price: 89.0,
     old_price: 120.5,
+  },
+  {
+   id:41,
+   name:"Casual Cotton Linen Loose Fit Shirt",
+   category:"hotdeals",
+   image:p41_img,
+   new_price:75.0,
+   old_price:110.5,    
+  },
+  {
+    id:42,
+    name:"Casual Cotton Linen Loose Fit Shirt",
+    category:"hotdeals",
+    image:p42_img,
+    new_price:95.0,
+    old_price:130.5,
   },
   {
     id: 8,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p8_img,
-    new_price: 85.0,
+    new_price: 55.0,
     old_price: 120.5,
   },
   {
@@ -110,7 +126,7 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p9_img,
-    new_price: 85.0,
+    new_price: 95.0,
     old_price: 120.5,
   },
   {
@@ -118,7 +134,7 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p10_img,
-    new_price: 85.0,
+    new_price: 105.0,
     old_price: 120.5,
   },
   {
@@ -126,7 +142,7 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p11_img,
-    new_price: 85.0,
+    new_price: 59.0,
     old_price: 120.5,
   },
   {
@@ -134,7 +150,7 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "hotdeals",
     image: p12_img,
-    new_price: 85.0,
+    new_price: 185.0,
     old_price: 120.5,
   },
   {
@@ -142,7 +158,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p13_img,
-    new_price: 85.0,
+    new_price: 125.0,
     old_price: 120.5,
   },
   {
@@ -150,7 +166,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p14_img,
-    new_price: 85.0,
+    new_price: 115.0,
     old_price: 120.5,
   },
   {
@@ -158,7 +174,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p15_img,
-    new_price: 85.0,
+    new_price: 84.0,
     old_price: 120.5,
   },
   {
@@ -166,7 +182,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p16_img,
-    new_price: 85.0,
+    new_price: 107.0,
     old_price: 120.5,
   },
   {
@@ -174,7 +190,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p17_img,
-    new_price: 85.0,
+    new_price: 147.0,
     old_price: 120.5,
   },
   {
@@ -182,7 +198,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p18_img,
-    new_price: 85.0,
+    new_price: 59.0,
     old_price: 120.5,
   },
   {
@@ -190,7 +206,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p19_img,
-    new_price: 85.0,
+    new_price: 99.0,
     old_price: 120.5,
   },
   {
@@ -198,7 +214,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p20_img,
-    new_price: 85.0,
+    new_price: 88.0,
     old_price: 120.5,
   },
   {
@@ -206,7 +222,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p21_img,
-    new_price: 85.0,
+    new_price: 77.0,
     old_price: 120.5,
   },
   {
@@ -214,7 +230,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p22_img,
-    new_price: 85.0,
+    new_price: 97.0,
     old_price: 120.5,
   },
   {
@@ -222,7 +238,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p23_img,
-    new_price: 85.0,
+    new_price: 79.0,
     old_price: 120.5,
   },
   {
@@ -230,7 +246,7 @@ let all_product = [
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "western",
     image: p24_img,
-    new_price: 85.0,
+    new_price: 88.0,
     old_price: 120.5,
   },
   {
@@ -238,7 +254,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p25_img,
-    new_price: 85.0,
+    new_price: 65.0,
     old_price: 120.5,
   },
   {
@@ -246,7 +262,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p26_img,
-    new_price: 85.0,
+    new_price: 66.0,
     old_price: 120.5,
   },
   {
@@ -254,7 +270,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p27_img,
-    new_price: 85.0,
+    new_price: 99.0,
     old_price: 120.5,
   },
   {
@@ -262,7 +278,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p28_img,
-    new_price: 85.0,
+    new_price: 83.0,
     old_price: 120.5,
   },
   {
@@ -278,7 +294,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p30_img,
-    new_price: 85.0,
+    new_price: 71.0,
     old_price: 120.5,
   },
   {
@@ -294,7 +310,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p32_img,
-    new_price: 85.0,
+    new_price: 92.0,
     old_price: 120.5,
   },
   {
@@ -302,7 +318,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p33_img,
-    new_price: 85.0,
+    new_price: 78.0,
     old_price: 120.5,
   },
   {
@@ -310,7 +326,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p34_img,
-    new_price: 85.0,
+    new_price: 102.0,
     old_price: 120.5,
   },
   {
@@ -318,7 +334,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p35_img,
-    new_price: 85.0,
+    new_price: 65.0,
     old_price: 120.5,
   },
   {
@@ -326,7 +342,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "newarrivals",
     image: p36_img,
-    new_price: 85.0,
+    new_price: 81.0,
     old_price: 120.5,
   },
   {
@@ -334,7 +350,7 @@ let all_product = [
     name: "Boys Orange Colourblocked Hooded Sweatshirt",
     category: "hotdeals",
     image: p37_img,
-    new_price: 85.0,
+    new_price: 95.0,
     old_price: 120.5,
   },
   {
@@ -342,7 +358,7 @@ let all_product = [
     name: "womens Orange Colourblocked Hooded Sweatshirt",
     category: "hotdeals",
     image: p38_img,
-    new_price: 85.0,
+    new_price: 69.0,
     old_price: 120.5, 
   },
   {
@@ -350,15 +366,18 @@ let all_product = [
     name: "womens Orange Colourblocked Hooded Sweatshirt",
     category: "hotdeals",
     image: p39_img,
-    new_price: 85.0,
+    new_price: 98.0,
     old_price: 120.5,
   },
   {
     id: 40,
     name: "womens Orange Colourblocked Hooded Sweatshirt",
     category: "hotdeals",
-    image: p40_img,
-    new_price: 85.0,
+    image: [
+      p40_img,
+      p41_img,
+    ],
+    new_price: 69.0,
     old_price: 120.5,
   }
 
