@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Contex/ShopContext";
 import "./CSS/Cart.css";
 
@@ -6,29 +6,22 @@ const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, getCartTotalPrice } =
     useContext(ShopContext);
 
-  // Multiple addresses list
-  const [addresses, setAddresses] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      street: "123 MG Road, Sector 45",
-      city: "Bengaluru",
-      state: "Karnataka",
-      pincode: "560001",
-      phone: "+91 9876543210",
-    },
-    {
-      id: 2,
-      name: "Priya Sharma",
-      street: "42 Park Avenue",
-      city: "Mumbai",
-      state: "Maharashtra",
-      pincode: "400001",
-      phone: "+91 9823456789",
-    },
-  ]);
+  // --- Load saved addresses from localStorage ---
+  const loadAddresses = () => {
+    const saved = localStorage.getItem("addresses");
+    return saved
+      ? JSON.parse(saved)
+      : [
+          
+        ];
+  };
 
-  const [selectedAddressId, setSelectedAddressId] = useState(1);
+  const [addresses, setAddresses] = useState(loadAddresses);
+  const [selectedAddressId, setSelectedAddressId] = useState(() => {
+    const saved = localStorage.getItem("selectedAddressId");
+    return saved ? Number(saved) : 1;
+  });
+
   const [showAddAddress, setShowAddAddress] = useState(false);
   const [newAddress, setNewAddress] = useState({
     name: "",
@@ -39,13 +32,27 @@ const Cart = () => {
     phone: "",
   });
 
-  // Handle new address form input
+  const [editAddressId, setEditAddressId] = useState(null);
+  const [editData, setEditData] = useState({});
+
+  // --- Save addresses to localStorage whenever they change ---
+  useEffect(() => {
+    localStorage.setItem("addresses", JSON.stringify(addresses));
+  }, [addresses]);
+
+  // --- Save selected address ID ---
+  useEffect(() => {
+    if (selectedAddressId) {
+      localStorage.setItem("selectedAddressId", selectedAddressId);
+    }
+  }, [selectedAddressId]);
+
+  // --- Add new address ---
   const handleNewAddressChange = (e) => {
     const { name, value } = e.target;
     setNewAddress((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Add a new address
   const handleAddAddress = () => {
     if (
       !newAddress.name ||
@@ -59,8 +66,13 @@ const Cart = () => {
       return;
     }
 
-    const newId = addresses.length + 1;
-    setAddresses([...addresses, { ...newAddress, id: newId }]);
+    const newId = addresses.length ? addresses[addresses.length - 1].id + 1 : 1;
+    const updated = [...addresses, { ...newAddress, id: newId }];
+
+    setAddresses(updated);
+    setSelectedAddressId(newId);
+    setShowAddAddress(false);
+
     setNewAddress({
       name: "",
       street: "",
@@ -69,8 +81,52 @@ const Cart = () => {
       pincode: "",
       phone: "",
     });
-    setShowAddAddress(false);
-    setSelectedAddressId(newId);
+  };
+
+  // --- Edit Address ---
+  const handleEditAddress = (addr) => {
+    setEditAddressId(addr.id);
+    setEditData({ ...addr });
+  };
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSaveEdit = () => {
+    if (
+      !editData.name ||
+      !editData.street ||
+      !editData.city ||
+      !editData.state ||
+      !editData.pincode ||
+      !editData.phone
+    ) {
+      alert("Please fill all fields before saving.");
+      return;
+    }
+
+    setAddresses((prev) =>
+      prev.map((a) => (a.id === editAddressId ? { ...editData } : a))
+    );
+    setEditAddressId(null);
+  };
+
+  const handleCancelEdit = () => {
+    setEditAddressId(null);
+  };
+
+  // --- Delete Address ---
+  const handleDeleteAddress = (id) => {
+    const updated = addresses.filter((addr) => addr.id !== id);
+    setAddresses(updated);
+
+    if (selectedAddressId === id && updated.length > 0) {
+      setSelectedAddressId(updated[0].id);
+    } else if (updated.length === 0) {
+      setSelectedAddressId(null);
+    }
   };
 
   const selectedAddress = addresses.find((a) => a.id === selectedAddressId);
@@ -102,27 +158,96 @@ const Cart = () => {
                     selectedAddressId === addr.id ? "selected" : ""
                   }`}
                 >
-                  <label className="address-radio">
-                    <input
-                      type="radio"
-                      name="address"
-                      checked={selectedAddressId === addr.id}
-                      onChange={() => setSelectedAddressId(addr.id)}
-                    />
-                    <span>
-                      <strong>{addr.name}</strong> <br />
-                      {addr.street}, {addr.city}, {addr.state} - {addr.pincode}
-                      <br />
-                      <span className="address-phone">
-                        Phone: {addr.phone}
-                      </span>
-                    </span>
-                  </label>
+                  {editAddressId === addr.id ? (
+                    <div className="edit-address-form">
+                      <input
+                        type="text"
+                        name="name"
+                        value={editData.name}
+                        onChange={handleEditChange}
+                        placeholder="Full Name"
+                      />
+                      <input
+                        type="text"
+                        name="street"
+                        value={editData.street}
+                        onChange={handleEditChange}
+                        placeholder="Street Address"
+                      />
+                      <input
+                        type="text"
+                        name="city"
+                        value={editData.city}
+                        onChange={handleEditChange}
+                        placeholder="City"
+                      />
+                      <input
+                        type="text"
+                        name="state"
+                        value={editData.state}
+                        onChange={handleEditChange}
+                        placeholder="State"
+                      />
+                      <input
+                        type="text"
+                        name="pincode"
+                        value={editData.pincode}
+                        onChange={handleEditChange}
+                        placeholder="Pincode"
+                      />
+                      <input
+                        type="text"
+                        name="phone"
+                        value={editData.phone}
+                        onChange={handleEditChange}
+                        placeholder="Phone"
+                      />
+
+                      <div className="edit-buttons">
+                        <button
+                          className="save-btn-modal"
+                          onClick={handleSaveEdit}
+                        >
+                          Save
+                        </button>
+                        <button className="cancel-btn" onClick={handleCancelEdit}>
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <label className="address-radio">
+                        <input
+                          type="radio"
+                          name="address"
+                          checked={selectedAddressId === addr.id}
+                          onChange={() => setSelectedAddressId(addr.id)}
+                        />
+                        <span>
+                          <strong>{addr.name}</strong> <br />
+                          {addr.street}, {addr.city}, {addr.state} -{" "}
+                          {addr.pincode}
+                          <br />
+                          <span className="address-phone">
+                            Phone: {addr.phone}
+                          </span>
+                        </span>
+                      </label>
+
+                      <div className="address-actions">
+                        <button onClick={() => handleEditAddress(addr)}>Edit</button>
+                        <button onClick={() => handleDeleteAddress(addr.id)}>
+                          Delete
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
 
-            {/* Cart items */}
+            {/* CART ITEMS */}
             {cartItems.map((item) => (
               <div className="cart-item" key={item.id}>
                 <img
@@ -176,9 +301,11 @@ const Cart = () => {
               </div>
             ))}
 
-            <button className="place-order-btn">
-              Deliver to {selectedAddress.name}
-            </button>
+            {selectedAddress && (
+              <button className="place-order-btn">
+                Deliver to {selectedAddress.name}
+              </button>
+            )}
           </div>
 
           {/* RIGHT SECTION */}
